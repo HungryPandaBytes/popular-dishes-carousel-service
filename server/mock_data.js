@@ -15,7 +15,7 @@ var dish = {
   photo_count: Math.floor(Math.random() * 100)
 };
 
-console.log(book);
+console.log(dish);
 
 modules.export.review = review;
 modules.export.dish = dish;
