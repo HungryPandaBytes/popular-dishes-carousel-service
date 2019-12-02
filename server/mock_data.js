@@ -1,7 +1,7 @@
+const { PopularDishes, PopularDishesReview } = require("./model.js");
 var faker = require("faker");
 
 var review = {
-  dish_name: faker.lorem.words(),
   reviewer_name: faker.name.findName(),
   reviewer_photo: faker.image.avatar(),
   review_date: faker.date.recent(),
@@ -9,13 +9,34 @@ var review = {
 };
 
 var dish = {
+  dish_id: Math.floor(Math.random() * 120),
   dish_name: faker.lorem.words(),
-  reviewer_photo: faker.image.abstract(),
-  review_count: Math.floor(Math.random() * 200),
-  photo_count: Math.floor(Math.random() * 100)
+  reviewer_photo: faker.image.abstract()
 };
 
-console.log(dish);
+console.log("this script is running");
 
-modules.export.review = review;
-modules.export.dish = dish;
+PopularDishes.create(dish, (err, data) => {
+  if (err) {
+    res.send(err);
+  } else {
+    res.send(data);
+    
+    review.dish_id = dish.dish_id;
+
+    PopularDishesReview.create(review, (err, data) => {
+      if (err) {
+        res.send(err);
+      } else {
+      }
+    });
+  }
+});
+
+PopularDishesReview.create(review, (err, data) => {
+  if (err) {
+    res.send(err);
+  } else {
+    res.send(data);
+  }
+});

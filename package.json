@@ -8,6 +8,7 @@
   },
   "scripts": {
     "react-dev": "webpack",
+    "seed-db": "node server/mock_data.js",
     "server": "nodemon server/index.js"
   },
   "dependencies": {

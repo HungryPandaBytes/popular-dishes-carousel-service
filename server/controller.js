@@ -10,6 +10,15 @@ module.exports = {
           res.send(data);
         }
       });
+    },
+    create: (req, res) => {
+      PopularDishes.create(req.body, (err, data) => {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send(data);
+        }
+      });
     }
   }
 };
