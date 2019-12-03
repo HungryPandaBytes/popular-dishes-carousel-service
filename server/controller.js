@@ -1,7 +1,7 @@
 const { PopularDishes } = require("./model.js");
 
 module.exports = {
-  PopularDishes: {
+  PopularDishesController: {
     get: (req, res) => {
       PopularDishes.get((err, data) => {
         if (err) {

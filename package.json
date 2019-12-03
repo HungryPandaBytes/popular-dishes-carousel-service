@@ -9,7 +9,9 @@
   "scripts": {
     "react-dev": "webpack",
     "seed-db": "node server/mock_data.js",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "test-coverage": "jest --collectCoverage",
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -18,7 +20,8 @@
     "mysql": "^2.17.1",
     "nodemon": "^2.0.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "sequelize": "^5.21.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -31,6 +34,12 @@
     "supertest": "^4.0.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "version": "1.0.0",
   "main": "index.js",
