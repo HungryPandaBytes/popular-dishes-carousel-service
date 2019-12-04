@@ -11,16 +11,19 @@ connection.connect();
 
 module.exports = {
   PopularDishes: {
-    get: callback => {
-      connection.query("SELECT * FROM popularDishes", function(error, result) {
-        if (error) {
-          callback(error);
+    get: (restaurantID, callback) => {
+      connection.query(
+        `SELECT * FROM popularDishes WHERE 'restaurant_id' = ${restaurantID}`,
+        function(error, result) {
+          if (error) {
+            callback(error);
+          }
+          callback(null, result);
         }
-        callback(null, result);
-      });
+      );
     },
     create: (fakerObj, callback) => {
-      var query = `INSERT INTO popularDishes (dish_id, dish_name, top_dish_photo) values (${fakerObj.dish_id}, '${fakerObj.dish_name}', '${fakerObj.reviewer_photo}');`;
+      var query = `INSERT INTO popularDishes (dish_id, dish_name, top_dish_photo, restaurant_id) values (${fakerObj.dish_id}, '${fakerObj.dish_name}', '${fakerObj.reviewer_photo}', '${fakerObj.restaurant_id}');`;
       connection.query(query, function(error, result) {
         if (error) {
           console.log(error);
@@ -29,10 +32,9 @@ module.exports = {
       });
     }
   },
-  PopularDishesReview: {
+  Restaurants: {
     create: (fakerObj, callback) => {
-
-      var query = `INSERT INTO reviews (dish_id, reviewer_name, review_date, review_text) values (${fakerObj.dish_id}, '${fakerObj.reviewer_name}', '${fakerObj.review_date}', '${fakerObj.review_text}');`;
+      var query = `INSERT INTO restaurant (restaurant_id, restaurant_name) values (${fakerObj.restaurant_id}, '${fakerObj.restaurant_name}');`;
       connection.query(query, function(error, result) {
         if (error) {
           console.log(error);
