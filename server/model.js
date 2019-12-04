@@ -20,13 +20,23 @@ module.exports = {
       });
     },
     create: (fakerObj, callback) => {
-      var query =
-        "INSERT INTO popularDishes (dish_name, top_dish_photo, photo_count, review_count) values ('pho', 'url', 23, 45);";
+      var query = `INSERT INTO popularDishes (dish_id, dish_name, top_dish_photo) values (${fakerObj.dish_id}, '${fakerObj.dish_name}', '${fakerObj.reviewer_photo}');`;
       connection.query(query, function(error, result) {
         if (error) {
           console.log(error);
         }
         console.log(result);
+      });
+    }
+  },
+  PopularDishesReview: {
+    create: (fakerObj, callback) => {
+
+      var query = `INSERT INTO reviews (dish_id, reviewer_name, review_date, review_text) values (${fakerObj.dish_id}, '${fakerObj.reviewer_name}', '${fakerObj.review_date}', '${fakerObj.review_text}');`;
+      connection.query(query, function(error, result) {
+        if (error) {
+          console.log(error);
+        }
       });
     }
   }
