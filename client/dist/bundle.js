@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./client/src/index.jsx?");
+eval("throw new Error(\"Module parse failed: Unexpected token (4:13)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| import ReactDOM from \\\"react-dom\\\";\\n| \\n> const test = <div>Hello World</div>;\\n| \\n| ReactDOM.render(test, querySelector(\\\"app\\\"));\");\n\n//# sourceURL=webpack:///./client/src/index.jsx?");
 
 /***/ })
 

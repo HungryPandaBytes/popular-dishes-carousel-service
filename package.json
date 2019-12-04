@@ -7,12 +7,12 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "react-dev": "webpack",
+    "react-dev": "webpack --watch",
     "seed-db": "node server/mock_data.js",
     "schema": "mysql -u root -p < /Users/lillytang/Documents/popular-dishes/schema.sql",
     "server": "nodemon server/index.js",
     "test-coverage": "jest --collectCoverage",
-    "test": "jest --watchAll"
+    "test": "NODE_ENV=test jest --watch"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -30,6 +30,7 @@
     "@babel/preset-react": "^7.7.4",
     "babel-loader": "^8.0.6",
     "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "jest": "^24.9.0",
     "supertest": "^4.0.2",
@@ -37,8 +38,9 @@
     "webpack-cli": "^3.3.10"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootdir>/jest.setup.js",
     "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
+    "testPathIgnorePatterns": [
       "/node_modules/"
     ]
   },
