@@ -5,8 +5,8 @@ const mysql = require("mysql");
 jest.mock("mysql");
 mysql.createConnection.mockReturnValue({
   connect: () => {},
-  query: () => {
-    return 1;
+  query: (_, callback) => {
+    return callback(null, "test_data");
   }
 });
 
@@ -21,6 +21,6 @@ describe("/GET all popular dishes", () => {
 
     PopularDishesController.get(req, res);
 
-    expect(res.send).toHaveBeenCalledWith(1);
+    expect(res.send).toHaveBeenCalledWith("test_data");
   });
 });
