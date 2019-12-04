@@ -3,7 +3,7 @@ const { PopularDishes } = require("./model.js");
 module.exports = {
   PopularDishesController: {
     get: (req, res) => {
-      PopularDishes.get((err, data) => {
+      PopularDishes.get(req.params.restaurant_id, (err, data) => {
         if (err) {
           res.send(err);
         } else {

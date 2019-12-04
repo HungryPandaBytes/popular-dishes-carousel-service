@@ -9,6 +9,7 @@
   "scripts": {
     "react-dev": "webpack",
     "seed-db": "node server/mock_data.js",
+    "schema": "mysql -u root -p < /Users/lillytang/Documents/popular-dishes/schema.sql",
     "server": "nodemon server/index.js",
     "test-coverage": "jest --collectCoverage",
     "test": "jest --watchAll"

@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
 connection.connect();
 
 module.exports = {
-  query: (queryString, callback) => {
+  find: (queryString, callback) => {
     connection.query(queryString, function(error, result) {
       if (error) {
         callback(error);

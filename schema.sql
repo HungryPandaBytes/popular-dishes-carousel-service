@@ -8,7 +8,7 @@ CREATE TABLE popularDishes (
     dish_id INT PRIMARY KEY AUTO_INCREMENT, 
     dish_name VARCHAR(200), 
     top_dish_photo VARCHAR(200),
-    restaurant_name VARCHAR(200), 
+    restaurant_id VARCHAR(200),  
     photo_id INT);
 
     CREATE TABLE reviews (
@@ -24,6 +24,11 @@ CREATE TABLE popularDishes (
     FOREIGN KEY (dish_id)
         REFERENCES popularDishes(dish_id)
     );
+
+
+    CREATE TABLE restaurants (
+    restaurant_id INT,  
+    restaurant_name TEXT);
 
     CREATE TABLE photos (
     photo_id INT PRIMARY KEY AUTO_INCREMENT,  
