@@ -70,7 +70,21 @@ class PopularDishesCarousel extends React.Component {
   }
 
   render() {
-    return <TopDishes fakeDishes={this.fakeDishes} />;
+    var buttonStyle = {
+      padding: 5,
+      height: 35,
+      width: 35,
+      borderRadius: 400,
+      backgroundColor: "light-grey"
+    };
+    return (
+      <div>
+        <h3>Popular Dishes</h3>
+        <button style={buttonStyle}>Prev</button>
+        <TopDishes fakeDishes={this.fakeDishes} />
+        <button style={buttonStyle}>Next</button>
+      </div>
+    );
   }
 }
 

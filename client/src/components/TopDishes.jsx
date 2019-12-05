@@ -3,9 +3,8 @@ import DishItem from "./DishItem.jsx";
 
 const TopDishes = props => {
   const sliderStyle = {
-    width: "65%",
+    width: "45%",
     margin: "auto",
-    display: "block-inline",
     display: "flex",
     overflow: "scroll",
     flexDirection: "row"
