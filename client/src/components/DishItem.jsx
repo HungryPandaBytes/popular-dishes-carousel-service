@@ -2,13 +2,14 @@ import React from "react";
 
 const DishItem = props => {
   const imgStyles = {
-    width: "250px",
-    height: "250px"
+    width: "200px",
+    height: "150px"
   };
   const divStyles = {
     margin: "5px",
     backgroundColor: "#eff0f1",
-    display: "inline-block"
+    display: "inline-blick",
+    position: "relative"
   };
   return (
     <div style={divStyles}>

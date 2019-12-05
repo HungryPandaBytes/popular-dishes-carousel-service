@@ -3,7 +3,7 @@ import React from "react";
 import { shallow } from "enzyme";
 
 // component
-import TopDishes from "./TopDishes";
+import TopDishes from "../TopDishes";
 
 // make a fake item that gets passed into it
 const fakeItem = {
