@@ -7,14 +7,16 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "react-dev": "webpack",
+    "react-dev": "webpack --watch",
     "seed-db": "node server/mock_data.js",
     "schema": "mysql -u root -p < /Users/lillytang/Documents/popular-dishes/schema.sql",
     "server": "nodemon server/index.js",
-    "test-coverage": "jest --collectCoverage",
+    "test-coverage": "jest --coverage",
     "test": "jest --watchAll"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "babel-jest": "^24.9.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
@@ -30,6 +32,7 @@
     "@babel/preset-react": "^7.7.4",
     "babel-loader": "^8.0.6",
     "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "jest": "^24.9.0",
     "supertest": "^4.0.2",
@@ -37,10 +40,13 @@
     "webpack-cli": "^3.3.10"
   },
   "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
+    "setupTestFrameworkScriptFile": "<rootdir>/jest.setup.js",
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@babel).+\\.js$"
+    ],
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    }
   },
   "version": "1.0.0",
   "main": "index.js",
