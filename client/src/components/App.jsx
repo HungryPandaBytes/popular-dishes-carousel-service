@@ -7,17 +7,38 @@ class App extends React.Component {
     this.state = {};
     this.fakeDishes = [
       {
-        dishName: "Baby Back Rib",
+        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
+        dishName: "Toro Sushi",
         photoCount: 3,
         reviewCount: 23
       },
       {
-        dishName: "Beef",
+        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
+        dishName: "Salmon Sushi",
         photoCount: 5,
         reviewCount: 2
       },
       {
-        dishName: "Brussel Sprouts",
+        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
+        dishName: "Kanpanchi Sushi",
+        photoCount: 3,
+        reviewCount: 44
+      },
+      {
+        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
+        dishName: "Lobster Sushi",
+        photoCount: 3,
+        reviewCount: 23
+      },
+      {
+        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
+        dishName: "King Salmon Sushi",
+        photoCount: 5,
+        reviewCount: 2
+      },
+      {
+        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
+        dishName: "Squid Sushi",
         photoCount: 3,
         reviewCount: 44
       }
