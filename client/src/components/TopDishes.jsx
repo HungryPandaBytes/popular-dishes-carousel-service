@@ -4,11 +4,11 @@ import DishItem from "./DishItem.jsx";
 const TopDishes = props => {
   return (
     <div>
-      {props.fakeDishes.forEach(dish => {
-        <DishItem dish={dish} />;
+      {props.fakeDishes.map((dish, idx) => {
+        return <DishItem key={idx} dish={dish} />;
       })}
     </div>
   );
 };
 
-// export default TopDishes;
+export default TopDishes;

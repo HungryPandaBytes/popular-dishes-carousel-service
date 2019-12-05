@@ -1,4 +1,5 @@
-// CLIENT SIDE TESTING ==================================
+// CLIENT SIDE TESTING ==================================================================================
+
 import React from "react";
 import { shallow } from "enzyme";
 
