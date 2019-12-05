@@ -11,10 +11,12 @@
     "seed-db": "node server/mock_data.js",
     "schema": "mysql -u root -p < /Users/lillytang/Documents/popular-dishes/schema.sql",
     "server": "nodemon server/index.js",
-    "test-coverage": "jest --collectCoverage",
-    "test": "NODE_ENV=test jest --watch"
+    "test-coverage": "jest --coverage",
+    "test": "jest --watchAll"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "babel-jest": "^24.9.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
@@ -39,10 +41,12 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootdir>/jest.setup.js",
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ]
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@babel).+\\.js$"
+    ],
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    }
   },
   "version": "1.0.0",
   "main": "index.js",

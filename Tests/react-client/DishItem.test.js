@@ -1,6 +1,9 @@
 // CLIENT SIDE TESTING ==================================
-import DishItem from "../components/DishItem";
+import React from "react";
 import { shallow } from "enzyme";
+
+// component
+import DishItem from "../client/src/components/DishItem.jsx";
 
 // make a fake item that gets passed into it
 const fakeItem = {
@@ -9,13 +12,16 @@ const fakeItem = {
   photoNumCount: 10
 };
 
-// constrain to testing a component as a unit to ensure the tests aren't as
-// call the mounting (means the moment when your component is inserted into the DOM) component a wrapper
+// use shallow rendering to check if <TopDishes /> renders and displays properly
 describe("<DishItem />", () => {
   it("renders and displays properly"),
     () => {
       const wrapper = shallow(<DishItem item={fakeItem} />);
       // print out the entire html tag structure
       console.log(wrapper.debug());
+      // check if it renders the TopDishes tag
+      const TopDishes = wrapper.find("DishItem");
+      // print out the html tag specifically for TopDishes
+      console.log(DishItem.debug());
     };
 });

@@ -1,7 +1,12 @@
 // SET UP FILE ================================================
 
-import { configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-
-// if React runs on a new version, the following will trigger this accordingly.
-configure({ adapter: new Adapter() });
+module.exports = {
+  rootDir: ".",
+  displayName: { name: "enzyme-setup", color: "blue" },
+  runner: "jest-runner",
+  verbose: true,
+  errorOnDeprecated: true,
+  //   roots: ["./Tests"],
+  moduleFileExtensions: ["js", "jsx"],
+  setupFilesAfterEnv: ["<rootDir>setupTest.js"]
+};
