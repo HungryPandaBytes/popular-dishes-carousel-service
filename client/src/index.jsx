@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PopularDishesCarousel from "./components/PopularDishesCarousel.jsx";
+import App from "./components/App.jsx";
 
-ReactDOM.render(<PopularDishesCarousel />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById("app"));

@@ -1,10 +1,13 @@
 import React from "react";
 import TopDishes from "./TopDishes.jsx";
+import Modal from "./Modal.jsx";
 
-class PopularDishesCarousel extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      showModal: false
+    };
     this.fakeDishes = [
       {
         img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
@@ -69,9 +72,29 @@ class PopularDishesCarousel extends React.Component {
     ];
   }
 
+  showModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  }
   render() {
-    return <TopDishes fakeDishes={this.fakeDishes} />;
+    return (
+      <div>
+        <h3 style={{ textAlign: "center" }}> Popular Dishes</h3>
+        <TopDishes
+          fakeDishes={this.fakeDishes}
+          showModal={this.showModal.bind(this)}
+        />
+
+        {this.state.showModal ? (
+          <Modal
+            text="This feature is coming out soon..."
+            closePopup={this.showModal.bind(this)}
+          />
+        ) : null}
+      </div>
+    );
   }
 }
 
-export default PopularDishesCarousel;
+export default App;
