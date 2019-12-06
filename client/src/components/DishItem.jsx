@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const DishItem = props => {
   return (
-    <StyledPopularDish>
+    <StyledPopularDish onClick={props.showModal}>
       <PopularDishImage
         src={props.dish.img}
         alt="No image. It's a pretty dish tho."
@@ -20,6 +20,7 @@ const PopularDishImage = styled.img`
   width: 150px;
   height: 100px;
 `;
+
 const StyledPopularDish = styled.div`
   font-family: Helvetica Neue;
   font-size: 10px;

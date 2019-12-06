@@ -1,10 +1,13 @@
 import React from "react";
 import TopDishes from "./TopDishes.jsx";
+import Modal from "./Modal.jsx";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      showModal: false
+    };
     this.fakeDishes = [
       {
         img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
@@ -69,11 +72,26 @@ class App extends React.Component {
     ];
   }
 
+  showModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  }
   render() {
     return (
       <div>
         <h3 style={{ textAlign: "center" }}> Popular Dishes</h3>
-        <TopDishes fakeDishes={this.fakeDishes} />
+        <TopDishes
+          fakeDishes={this.fakeDishes}
+          showModal={this.showModal.bind(this)}
+        />
+
+        {this.state.showModal ? (
+          <Modal
+            text="This feature is coming out soon..."
+            closePopup={this.showModal.bind(this)}
+          />
+        ) : null}
       </div>
     );
   }

@@ -2,25 +2,46 @@ import React from "react";
 import DishItem from "./DishItem.jsx";
 import styled from "styled-components";
 
-const TopDishes = props => {
-  console.log();
-  return (
-    <Wrapper className="wrapper">
-      <CarouselWrapper
-        className="sliderWrapper"
-        ref={node => node && console.log("width of carousel", node.offsetWidth)}
-      >
-        {props.fakeDishes.map((dish, idx) => {
-          return <DishItem key={idx} dish={dish} />;
-        })}
-      </CarouselWrapper>
-      <ButtonWrapper className="buttonWrapper">
-        <Button>Prev</Button>
-        <Button>Next</Button>
-      </ButtonWrapper>
-    </Wrapper>
-  );
-};
+class TopDishes extends React.Component {
+  constructor(props) {
+    super(props);
+    this.carouselwrapper = React.createRef();
+    this.state = {};
+    this.onClickHandler = this.onClickHandler.bind(this);
+  }
+
+  onClickHandler() {
+    const carouselWidth = this.carouselwrapper.current.offsetWidth;
+    console.log(this.carouselwrapper.current);
+    console.log("baz");
+    this.carouselwrapper.current.scrollBy({
+      right: 1000,
+      behavior: "smooth"
+    });
+  }
+
+  render() {
+    return (
+      <Wrapper className="wrapper">
+        <CarouselWrapper className="sliderWrapper" ref={this.carouselwrapper}>
+          {this.props.fakeDishes.map((dish, idx) => {
+            return (
+              <DishItem
+                key={idx}
+                dish={dish}
+                showModal={this.props.showModal}
+              />
+            );
+          })}
+        </CarouselWrapper>
+        <ButtonWrapper className="buttonWrapper">
+          <Button>Prev</Button>
+          <Button onClick={this.onClickHandler}>Next</Button>
+        </ButtonWrapper>
+      </Wrapper>
+    );
+  }
+}
 
 // carousel wrapper styling
 const Wrapper = styled.div`
