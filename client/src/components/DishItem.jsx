@@ -1,32 +1,32 @@
 import React from "react";
+import styled from "styled-components";
 
 const DishItem = props => {
-  const imgStyles = {
-    width: "150px",
-    height: "100px"
-  };
-  const divStyles = {
-    fontFamily: "Helvetica Neue",
-    margin: "5px",
-    backgroundColor: "#eff0f1",
-    position: "relative",
-    textAlign: "left"
-  };
   return (
-    <div style={divStyles}>
-      <img
+    <StyledPopularDish>
+      <PopularDishImage
         src={props.dish.img}
-        style={imgStyles}
         alt="No image. It's a pretty dish tho."
       />
-      <ul style={{ fontFamily: "Helvetica Neue", fontSize: "10px" }}>
-        {props.dish.dishName}
-      </ul>
+      <ul>{props.dish.dishName}</ul>
       <ul style={{ fontFamily: "Helvetica Neue", fontSize: "7px" }}>
         {props.dish.photoCount} Photos {props.dish.reviewCount} Reviews
       </ul>
-    </div>
+    </StyledPopularDish>
   );
 };
+
+const PopularDishImage = styled.img`
+  width: 150px;
+  height: 100px;
+`;
+const StyledPopularDish = styled.div`
+  font-family: Helvetica Neue;
+  font-size: 10px;
+  margin: 5px;
+  background-color: #eff0f1;
+  position: relative;
+  text-align: left;
+`;
 
 export default DishItem;

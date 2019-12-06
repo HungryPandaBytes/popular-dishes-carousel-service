@@ -1,7 +1,7 @@
 import React from "react";
 import TopDishes from "./TopDishes.jsx";
 
-class PopularDishesCarousel extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -74,9 +74,9 @@ class PopularDishesCarousel extends React.Component {
       <div>
         <h3 style={{ textAlign: "center" }}> Popular Dishes</h3>
         <TopDishes fakeDishes={this.fakeDishes} />
-      </div>  
+      </div>
     );
   }
 }
 
-export default PopularDishesCarousel;
+export default App;
