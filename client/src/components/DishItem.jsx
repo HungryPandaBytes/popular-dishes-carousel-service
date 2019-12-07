@@ -9,8 +9,19 @@ const DishItem = props => {
         alt="No image. It's a pretty dish tho."
       />
       <StyledDescription>
-        <div>{props.dish.dishName}</div>
-        <div style={{ fontFamily: "Helvetica Neue", fontSize: "7px" }}>
+        <div style={{ marginTop: "15px", marginLeft: "15px" }}>
+          {props.dish.dishName}{" "}
+        </div>
+        <div
+          style={{
+            marginBottom: "15px",
+            marginLeft: "15px",
+            fontFamily: "Helvetica Neue",
+            fontWeight: "400",
+            color: "grey",
+            fontSize: "10px"
+          }}
+        >
           {props.dish.photoCount} Photos {props.dish.reviewCount} Reviews
         </div>
       </StyledDescription>
@@ -26,8 +37,12 @@ const PopularDishImage = styled.img`
 
 const StyledPopularDish = styled.div`
   font-family: Helvetica Neue;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 700;
   margin: 5px;
+  border-left: 1px solid #f0f0f0;
+  border-right: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
   background-color: white;
   position: relative;
   text-align: left;
@@ -38,9 +53,7 @@ const StyledPopularDish = styled.div`
 `;
 
 const StyledDescription = styled.div`
-  border-left: 1px solid #c0c0c0;
-  border-right: 1px solid #c0c0c0;
-  border-bottom: 1px solid #c0c0c0;
+  border-bottom: 1px solid #f0f0f0;
 `;
 
 export default DishItem;
