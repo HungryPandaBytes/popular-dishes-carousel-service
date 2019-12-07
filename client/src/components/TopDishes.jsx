@@ -39,8 +39,8 @@ class TopDishes extends React.Component {
           })}
         </CarouselWrapper>
         <ButtonWrapper>
-          <Button onClick={this.prevButtonHandler.bind(this)}>Prev</Button>
-          <Button onClick={this.nextButtonHandler.bind(this)}>Next</Button>
+          <Button onClick={this.prevButtonHandler.bind(this)}>&#x3c;</Button>
+          <Button onClick={this.nextButtonHandler.bind(this)}>&#x3e;</Button>
         </ButtonWrapper>
       </Wrapper>
     );
@@ -50,7 +50,7 @@ class TopDishes extends React.Component {
 // carousel wrapper styling
 const Wrapper = styled.div`
   height: 200px;
-  width: 485px;
+  width: 490px;
   position: relative;
   overflow: hidden;
   margin: auto;
@@ -58,13 +58,11 @@ const Wrapper = styled.div`
 
 // carousel styling
 const CarouselWrapper = styled.div`
-  margin: 0;
   padding: 0;
   width: 100%;
   display: flex;
   flexdirection: row;
   overflow: auto;
-  position: relative;
   -ms-overflow-style: none;
   &:: -webkit-scrollbar {
     display: none;
@@ -73,20 +71,21 @@ const CarouselWrapper = styled.div`
 
 // button wrapper using flexbox
 export const ButtonWrapper = styled.div`
+  width: 100%;
   margin: auto;
   display: flex;
+  position: absolute;
   justify-content: space-between;
-  position: "absolute";
+  top: 30%;
 `;
 
 // button styling
 export const Button = styled.button`
-  padding: 5;
-  height: 35;
-  width: 35;
-  border-radius: 400;
-  background-color: light-grey;
-  position: "absolute";
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+  border-radius: 400px;
+  background-image: light-grey;
   &:hover {
     box-shadow: 1px 1px 5px #c0c0c0;
   }
