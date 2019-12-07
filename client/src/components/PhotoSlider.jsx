@@ -40,10 +40,10 @@ const SingleDishImage = styled.img`
   position: relative;
   top: 50%;
   left: 50%;
-  max-width: 300px;
-  max-height: 300px;
-  margin-top: -150px; /* Half the max height */
-  margin-left: -150px; /* Half the max width */
+  width: 250px;
+  height: 200px;
+  margin-top: -100px; /* Half the max height */
+  margin-left: -125px; /* Half the max width */
   background-color: black;
 `;
 

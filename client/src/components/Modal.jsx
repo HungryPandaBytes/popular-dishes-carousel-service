@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PhotoSlider from "./PhotoSlider.jsx";
+import { Button } from "./TopDishes.jsx";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -10,9 +11,11 @@ class Modal extends React.Component {
     return (
       <StyledModal className="modal">
         <StyledInnerModal className="modalInner">
+          <ModalButton>◄</ModalButton>
           <PhotoSlider />
+          <ModalButton>►</ModalButton>
           <PhotoSlider />
-          <button onClick={this.props.closePopup}>close me</button>
+          <button onClick={this.props.closePopup}>close</button>
         </StyledInnerModal>
       </StyledModal>
     );
@@ -39,7 +42,17 @@ const StyledInnerModal = styled.div`
   margin: auto;
   display: flex;
   border-radius: 5px;
-  background: white;
+`;
+
+// button styling
+const ModalButton = styled.button`
+  height: 35;
+  width: 35;
+  color: white;
+  margin: 0px;
+  border: 0px;
+  background-color: black;
+  position: "relative";
 `;
 
 export default Modal;

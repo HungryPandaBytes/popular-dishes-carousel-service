@@ -72,7 +72,7 @@ const CarouselWrapper = styled.div`
 `;
 
 // button wrapper using flexbox
-const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -80,7 +80,7 @@ const ButtonWrapper = styled.div`
 `;
 
 // button styling
-const Button = styled.button`
+export const Button = styled.button`
   padding: 5;
   height: 35;
   width: 35;
