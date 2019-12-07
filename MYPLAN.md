@@ -20,9 +20,10 @@
 - use scrollBy to move 3 dishes to the left / right after each click
 - need to figure out the width of the 3 dishes and include it in the clickhandler
 
-5. Upload the photos to S3 and think of a way to seed it to db
 6. Build the modal for each top dishes
 
-- research how React handles modal
+- set up modal for each top dishes
+- set up the structure of 
 
 6. Build the Review component that
+7. Upload the photos to S3 and think of a way to seed it to db

@@ -22,14 +22,14 @@ const DishItem = props => {
             fontSize: "10px"
           }}
         >
-          {props.dish.photoCount} Photos {props.dish.reviewCount} Reviews
+          {props.dish.photoCount} Photos • {props.dish.reviewCount} Reviews
         </div>
       </StyledDescription>
     </StyledPopularDish>
   );
 };
 
-const PopularDishImage = styled.img`
+export const PopularDishImage = styled.img`
   width: 150px;
   height: 100px;
   border-radius: 4px 4px 0px 0px;
