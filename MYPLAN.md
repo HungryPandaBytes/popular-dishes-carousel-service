@@ -23,7 +23,13 @@
 6. Build the modal for each top dishes
 
 - set up modal for each top dishes
-- set up the structure of 
+- set up the structure of
 
-6. Build the Review component that
-7. Upload the photos to S3 and think of a way to seed it to db
+7 Build a photoslider & photoslide
+
+- photoslider component will be similar to the carousel but it will display one photo with caption at a time
+- photoslide component will be displaying the photo that get passed via props by photoslider
+- the previous and next button will get hooked up in the photoslider component
+
+8. Build the Review component that
+9. Upload the photos to S3 and think of a way to seed it to db
