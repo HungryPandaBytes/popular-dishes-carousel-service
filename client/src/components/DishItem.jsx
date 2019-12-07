@@ -8,10 +8,12 @@ const DishItem = props => {
         src={props.dish.img}
         alt="No image. It's a pretty dish tho."
       />
-      <ul>{props.dish.dishName}</ul>
-      <ul style={{ fontFamily: "Helvetica Neue", fontSize: "7px" }}>
-        {props.dish.photoCount} Photos {props.dish.reviewCount} Reviews
-      </ul>
+      <StyledDescription>
+        <div>{props.dish.dishName}</div>
+        <div style={{ fontFamily: "Helvetica Neue", fontSize: "7px" }}>
+          {props.dish.photoCount} Photos {props.dish.reviewCount} Reviews
+        </div>
+      </StyledDescription>
     </StyledPopularDish>
   );
 };
@@ -26,13 +28,19 @@ const StyledPopularDish = styled.div`
   font-family: Helvetica Neue;
   font-size: 10px;
   margin: 5px;
-  background-color: #eff0f1;
+  background-color: white;
   position: relative;
   text-align: left;
   border-radius: 4px;
   &:hover {
     box-shadow: 1px 1px 5px #c0c0c0;
   }
+`;
+
+const StyledDescription = styled.div`
+  border-left: 1px solid #c0c0c0;
+  border-right: 1px solid #c0c0c0;
+  border-bottom: 1px solid #c0c0c0;
 `;
 
 export default DishItem;
