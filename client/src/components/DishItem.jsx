@@ -19,6 +19,7 @@ const DishItem = props => {
 const PopularDishImage = styled.img`
   width: 150px;
   height: 100px;
+  border-radius: 4px 4px 0px 0px;
 `;
 
 const StyledPopularDish = styled.div`
@@ -28,6 +29,10 @@ const StyledPopularDish = styled.div`
   background-color: #eff0f1;
   position: relative;
   text-align: left;
+  border-radius: 4px;
+  &:hover {
+    box-shadow: 1px 1px 5px #c0c0c0;
+  }
 `;
 
 export default DishItem;

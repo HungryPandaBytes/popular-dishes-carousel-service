@@ -6,24 +6,28 @@ class TopDishes extends React.Component {
   constructor(props) {
     super(props);
     this.carouselwrapper = React.createRef();
-    this.state = {};
-    this.onClickHandler = this.onClickHandler.bind(this);
   }
 
-  onClickHandler() {
-    const carouselWidth = this.carouselwrapper.current.offsetWidth;
-    console.log(this.carouselwrapper.current);
-    console.log("baz");
+  nextButtonHandler() {
     this.carouselwrapper.current.scrollBy({
-      right: 1000,
+      top: 0,
+      left: 480,
+      behavior: "smooth"
+    });
+  }
+
+  prevButtonHandler() {
+    this.carouselwrapper.current.scrollBy({
+      top: 0,
+      left: -480,
       behavior: "smooth"
     });
   }
 
   render() {
     return (
-      <Wrapper className="wrapper">
-        <CarouselWrapper className="sliderWrapper" ref={this.carouselwrapper}>
+      <Wrapper>
+        <CarouselWrapper ref={this.carouselwrapper}>
           {this.props.fakeDishes.map((dish, idx) => {
             return (
               <DishItem
@@ -34,9 +38,9 @@ class TopDishes extends React.Component {
             );
           })}
         </CarouselWrapper>
-        <ButtonWrapper className="buttonWrapper">
-          <Button>Prev</Button>
-          <Button onClick={this.onClickHandler}>Next</Button>
+        <ButtonWrapper>
+          <Button onClick={this.prevButtonHandler.bind(this)}>Prev</Button>
+          <Button onClick={this.nextButtonHandler.bind(this)}>Next</Button>
         </ButtonWrapper>
       </Wrapper>
     );
@@ -59,21 +63,20 @@ const CarouselWrapper = styled.div`
   width: 100%;
   display: flex;
   flexdirection: row;
-  overflow: scroll;
-  transition: all 1s ease;
-  ${"" /* position: absolute */}
+  overflow: auto;
+  position: relative;
+  -ms-overflow-style: none;
+  &:: -webkit-scrollbar {
+    display: none;
+  }
 `;
 
 // button wrapper using flexbox
 const ButtonWrapper = styled.div`
-  height: 100%;
-  width: 100%;
   margin: auto;
   display: flex;
   justify-content: space-between;
-  ${"" /* when i implemented the js logic to animate the change, enable the absolute position
- position: "absolute",
- alignItems: "center" */}
+  position: "absolute";
 `;
 
 // button styling
@@ -83,6 +86,10 @@ const Button = styled.button`
   width: 35;
   border-radius: 400;
   background-color: light-grey;
+  position: "absolute";
+  &:hover {
+    box-shadow: 1px 1px 5px #c0c0c0;
+  }
 `;
 
 export default TopDishes;
