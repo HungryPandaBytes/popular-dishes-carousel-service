@@ -12,10 +12,10 @@ class TopDishes extends React.Component {
 
   onClickHandler() {
     const carouselWidth = this.carouselwrapper.current.offsetWidth;
-    console.log(this.carouselwrapper.current);
-    console.log("baz");
+    console.log(this.carouselwrapper.current.scrollLeft);
     this.carouselwrapper.current.scrollBy({
-      right: 1000,
+      top: 0,
+      left: 100,
       behavior: "smooth"
     });
   }
@@ -35,7 +35,7 @@ class TopDishes extends React.Component {
           })}
         </CarouselWrapper>
         <ButtonWrapper className="buttonWrapper">
-          <Button>Prev</Button>
+          <Button onClick={this.onClickHandler}>Prev</Button>
           <Button onClick={this.onClickHandler}>Next</Button>
         </ButtonWrapper>
       </Wrapper>
@@ -56,12 +56,15 @@ const Wrapper = styled.div`
 const CarouselWrapper = styled.div`
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 485px;
   display: flex;
   flexdirection: row;
-  overflow: scroll;
-  transition: all 1s ease;
-  ${"" /* position: absolute */}
+  overflow: auto;
+  position: relative;
+  -ms-overflow-style: none;
+  &:: -webkit-scrollbar {
+    display: none;
+  }
 `;
 
 // button wrapper using flexbox
