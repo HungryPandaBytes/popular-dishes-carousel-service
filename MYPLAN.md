@@ -13,11 +13,12 @@
 4. Styling with 'styled-component'
 
 - understand how to user create.Ref to calculate the offsetWidth
+- add the shadow effect on each dishItem on hover
 
 5. Implmenting the carousel logic
 
 - use scrollBy to move 3 dishes to the left / right after each click
-- need to figure out the width of the 3 dishes and include it in the clickhandler   
+- need to figure out the width of the 3 dishes and include it in the clickhandler
 
 5. Upload the photos to S3 and think of a way to seed it to db
 6. Build the modal for each top dishes

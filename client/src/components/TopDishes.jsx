@@ -87,6 +87,9 @@ const Button = styled.button`
   border-radius: 400;
   background-color: light-grey;
   position: "absolute";
+  &:hover {
+    box-shadow: 1px 1px 5px #c0c0c0;
+  }
 `;
 
 export default TopDishes;
