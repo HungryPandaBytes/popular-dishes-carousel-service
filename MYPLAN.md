@@ -13,8 +13,11 @@
 4. Styling with 'styled-component'
 
 - understand how to user create.Ref to calculate the offsetWidth
-- use transform and translate to move 3 dishes after each click
--
+
+5. Implmenting the carousel logic
+
+- use scrollBy to move 3 dishes to the left / right after each click
+- need to figure out the width of the 3 dishes and include it in the clickhandler   
 
 5. Upload the photos to S3 and think of a way to seed it to db
 6. Build the modal for each top dishes

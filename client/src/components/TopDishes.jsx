@@ -6,24 +6,28 @@ class TopDishes extends React.Component {
   constructor(props) {
     super(props);
     this.carouselwrapper = React.createRef();
-    this.state = {};
-    this.onClickHandler = this.onClickHandler.bind(this);
   }
 
-  onClickHandler() {
-    const carouselWidth = this.carouselwrapper.current.offsetWidth;
-    console.log(this.carouselwrapper.current.scrollLeft);
+  nextButtonHandler() {
     this.carouselwrapper.current.scrollBy({
       top: 0,
-      left: 100,
+      left: 480,
+      behavior: "smooth"
+    });
+  }
+
+  prevButtonHandler() {
+    this.carouselwrapper.current.scrollBy({
+      top: 0,
+      left: -480,
       behavior: "smooth"
     });
   }
 
   render() {
     return (
-      <Wrapper className="wrapper">
-        <CarouselWrapper className="sliderWrapper" ref={this.carouselwrapper}>
+      <Wrapper>
+        <CarouselWrapper ref={this.carouselwrapper}>
           {this.props.fakeDishes.map((dish, idx) => {
             return (
               <DishItem
@@ -34,9 +38,9 @@ class TopDishes extends React.Component {
             );
           })}
         </CarouselWrapper>
-        <ButtonWrapper className="buttonWrapper">
-          <Button onClick={this.onClickHandler}>Prev</Button>
-          <Button onClick={this.onClickHandler}>Next</Button>
+        <ButtonWrapper>
+          <Button onClick={this.prevButtonHandler.bind(this)}>Prev</Button>
+          <Button onClick={this.nextButtonHandler.bind(this)}>Next</Button>
         </ButtonWrapper>
       </Wrapper>
     );
@@ -56,7 +60,7 @@ const Wrapper = styled.div`
 const CarouselWrapper = styled.div`
   margin: 0;
   padding: 0;
-  width: 485px;
+  width: 100%;
   display: flex;
   flexdirection: row;
   overflow: auto;
@@ -69,14 +73,10 @@ const CarouselWrapper = styled.div`
 
 // button wrapper using flexbox
 const ButtonWrapper = styled.div`
-  height: 100%;
-  width: 100%;
   margin: auto;
   display: flex;
   justify-content: space-between;
-  ${"" /* when i implemented the js logic to animate the change, enable the absolute position
- position: "absolute",
- alignItems: "center" */}
+  position: "absolute";
 `;
 
 // button styling
@@ -86,6 +86,7 @@ const Button = styled.button`
   width: 35;
   border-radius: 400;
   background-color: light-grey;
+  position: "absolute";
 `;
 
 export default TopDishes;
