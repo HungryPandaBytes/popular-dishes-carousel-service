@@ -5,6 +5,7 @@ const Slide = props => {
   return (
     <StyledSlide>
       <StyledImage src={props.image.img}></StyledImage>
+      <h4>{props.image.caption}</h4>
     </StyledSlide>
   );
 };

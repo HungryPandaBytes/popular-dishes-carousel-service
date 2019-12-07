@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PhotoSlider from "./PhotoSlider.jsx";
+import Slide from "./Slide.jsx";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -16,25 +16,35 @@ class Modal extends React.Component {
           img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
           caption: "This is gross"
         }
-      ]
+      ],
+      currentIdx: 0
     };
     this.PhotoSliderRef = React.createRef();
   }
-  prevSlideButton() {}
+  prevSlideButton() {
+    const currentIdx = this.state.currentIdx;
+    if (currentIdx >= this.state.images.length - 1) {
+      this.setState({
+        currentIdx: currentIdx - 1
+      });
+    }
+  }
 
   nextSlideButton() {
-    this.PhotoSliderRef.current.scrollBy({
-      top: 0,
-      left: 250,
-      behavior: "initial"
-    });
+    const currentIdx = this.state.currentIdx;
+    if (currentIdx < this.state.images.length - 1) {
+      this.setState({
+        currentIdx: currentIdx + 1
+      });
+    }
   }
+
   render() {
     return (
       <StyledModal className="modal">
         <StyledInnerModal className="modalInner">
           <ModalButton onClick={this.prevSlideButton.bind(this)}>◄</ModalButton>
-          <PhotoSlider ref={this.PhotoSliderRef} images={this.state.images} />
+          <Slide image={this.state.images[this.state.currentIdx]} />
           <ModalButton onClick={this.nextSlideButton.bind(this)}>►</ModalButton>
           <button onClick={this.props.closePopup}>close</button>
         </StyledInnerModal>

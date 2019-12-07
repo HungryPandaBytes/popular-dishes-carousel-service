@@ -6,12 +6,17 @@ class PhotoSlider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.PhotoSliderRef = React.createRef();
+  }
+
+  componentDidMount() {
+    console.log(this.PhotoSliderRef.current);
   }
 
   render() {
     return (
       <div>
-        <StyledDishImageWrapper>
+        <PhotoSliderWrapper ref={this.PhotoSliderRef}>
           {this.props.images.map((image, idx) => {
             return (
               <Slide
@@ -21,7 +26,7 @@ class PhotoSlider extends React.Component {
               />
             );
           })}
-        </StyledDishImageWrapper>
+        </PhotoSliderWrapper>
       </div>
     );
   }
@@ -38,7 +43,7 @@ class PhotoSlider extends React.Component {
 //   background-color: black;
 // `;
 
-const StyledDishImageWrapper = styled.div`
+const PhotoSliderWrapper = styled.div`
   width: 400px;
   height: 100%;
   background-color: black;
