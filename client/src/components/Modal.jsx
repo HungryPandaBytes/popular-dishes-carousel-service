@@ -19,6 +19,7 @@ class Modal extends React.Component {
       ],
       currentIdx: 0
     };
+    this.totalPhotoCount = this.state.images.length;
     this.PhotoSliderRef = React.createRef();
   }
   prevSlideButton() {
@@ -49,7 +50,11 @@ class Modal extends React.Component {
           >
             &#x3c;
           </ModalButton>
-          <PhotoSlide image={this.state.images[this.state.currentIdx]} />
+          <PhotoSlide
+            image={this.state.images[this.state.currentIdx]}
+            currentIdx={this.state.currentIdx}
+            totalPhotoCount={this.totalPhotoCount}
+          />
           <ModalButton
             className="next-slide-button"
             onClick={this.nextSlideButton.bind(this)}
@@ -58,7 +63,7 @@ class Modal extends React.Component {
           </ModalButton>
         </StyledInnerModal>
         <StyledExitButton onClick={this.props.closePopup}>
-          <h3 style={{ fontFamily: "Helvetica Neue" }}>Close X</h3>
+          <h3>Close X</h3>
         </StyledExitButton>
       </StyledModalWrapper>
     );
@@ -80,24 +85,21 @@ const StyledModalWrapper = styled.div`
 `;
 const StyledInnerModal = styled.div`
   display: flex;
+  height: 80vh;
+  width: 80vw;
+  margin: auto;
   flex-direction: row;
   justify-content: space-between;
   background-color: black;
   border-radius: 10px;
 `;
 
-const PhotoSliderWrapper = styled.div`
-  background-color: black;
-  display: flex;
-`;
-
 // button styling
 const ModalButton = styled.button`
   height: 35px;
   width: 35px;
-  top: 50%;
   color: white;
-  margin: 0px;
+  margin: auto;
   border: 0px;
   background-color: black;
   font-size: 35px;
@@ -108,10 +110,11 @@ const StyledExitButton = styled.button`
   position: absolute;
   background-color: Transparent;
   right: 10%;
-  top: 4%;
+  top: 5%;
   border: none;
   cursor: pointer;
   overflow: hidden;
   color: white;
+  font-family: Helvetica Neue;
 `;
 export default Modal;
