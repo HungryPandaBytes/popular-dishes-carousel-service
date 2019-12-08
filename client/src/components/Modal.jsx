@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Slide from "./Slide.jsx";
+import PhotoSlide from "./PhotoSlide.jsx";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -41,27 +41,31 @@ class Modal extends React.Component {
 
   render() {
     return (
-      <StyledModal className="modal">
+      <StyledModalWrapper className="modal">
         <StyledInnerModal className="modalInner">
-          <ModalButton onClick={this.prevSlideButton.bind(this)}>
-            <StyledArrowButton>&#x3c;</StyledArrowButton>
-          </ModalButton>{" "}
-          <PhotoSliderWrapper>
-            <Slide image={this.state.images[this.state.currentIdx]} />
-          </PhotoSliderWrapper>
-          <ModalButton onClick={this.nextSlideButton.bind(this)}>
-            <StyledArrowButton>&#x3e;</StyledArrowButton>
+          <ModalButton
+            className="prev-slide-button"
+            onClick={this.prevSlideButton.bind(this)}
+          >
+            &#x3c;
+          </ModalButton>
+          <PhotoSlide image={this.state.images[this.state.currentIdx]} />
+          <ModalButton
+            className="next-slide-button"
+            onClick={this.nextSlideButton.bind(this)}
+          >
+            &#x3e;
           </ModalButton>
         </StyledInnerModal>
         <StyledExitButton onClick={this.props.closePopup}>
           <h3 style={{ fontFamily: "Helvetica Neue" }}>Close X</h3>
         </StyledExitButton>
-      </StyledModal>
+      </StyledModalWrapper>
     );
   }
 }
 
-const StyledModal = styled.div`
+const StyledModalWrapper = styled.div`
   position: fixed;
   width: 100vm;
   height: 100vm;
@@ -69,41 +73,33 @@ const StyledModal = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
 `;
 const StyledInnerModal = styled.div`
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  top: 10%;
-  bottom: 10%;
-  margin: auto;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: black;
   border-radius: 10px;
 `;
 
 const PhotoSliderWrapper = styled.div`
-  width: 100%;
-  height: 100%;
   background-color: black;
-  position: relative;
   display: flex;
-  justify-content: space-evenly;
 `;
 
 // button styling
 const ModalButton = styled.button`
   height: 35px;
   width: 35px;
+  top: 50%;
   color: white;
   margin: 0px;
   border: 0px;
   background-color: black;
-`;
-
-const StyledArrowButton = styled.span`
   font-size: 35px;
   transform: scale(0.5, 1);
 `;
