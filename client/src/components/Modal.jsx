@@ -43,11 +43,19 @@ class Modal extends React.Component {
     return (
       <StyledModal className="modal">
         <StyledInnerModal className="modalInner">
-          <ModalButton onClick={this.prevSlideButton.bind(this)}>◄</ModalButton>
-          <Slide image={this.state.images[this.state.currentIdx]} />
-          <ModalButton onClick={this.nextSlideButton.bind(this)}>►</ModalButton>
-          <button onClick={this.props.closePopup}>close</button>
+          <ModalButton onClick={this.prevSlideButton.bind(this)}>
+            <StyledArrowButton>&#x3c;</StyledArrowButton>
+          </ModalButton>{" "}
+          <PhotoSliderWrapper>
+            <Slide image={this.state.images[this.state.currentIdx]} />
+          </PhotoSliderWrapper>
+          <ModalButton onClick={this.nextSlideButton.bind(this)}>
+            <StyledArrowButton>&#x3e;</StyledArrowButton>
+          </ModalButton>
         </StyledInnerModal>
+        <StyledExitButton onClick={this.props.closePopup}>
+          <h3 style={{ fontFamily: "Helvetica Neue" }}>Close X</h3>
+        </StyledExitButton>
       </StyledModal>
     );
   }
@@ -72,7 +80,17 @@ const StyledInnerModal = styled.div`
   bottom: 10%;
   margin: auto;
   display: flex;
-  border-radius: 5px;
+  background-color: black;
+  border-radius: 10px;
+`;
+
+const PhotoSliderWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
 `;
 
 // button styling
@@ -83,7 +101,21 @@ const ModalButton = styled.button`
   margin: 0px;
   border: 0px;
   background-color: black;
-  position: "relative";
 `;
 
+const StyledArrowButton = styled.span`
+  font-size: 35px;
+  transform: scale(0.5, 1);
+`;
+
+const StyledExitButton = styled.button`
+  position: absolute;
+  background-color: Transparent;
+  right: 10%;
+  top: 4%;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  color: white;
+`;
 export default Modal;

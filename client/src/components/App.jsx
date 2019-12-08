@@ -1,7 +1,6 @@
 import React from "react";
 import TopDishes from "./TopDishes.jsx";
 import Modal from "./Modal.jsx";
-import PhotoSlider from "./PhotoSlider.jsx";
 
 class App extends React.Component {
   constructor(props) {
