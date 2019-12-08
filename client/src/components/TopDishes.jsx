@@ -53,7 +53,6 @@ const Wrapper = styled.div`
   width: 490px;
   position: relative;
   overflow: hidden;
-  margin: auto;
 `;
 
 // carousel styling

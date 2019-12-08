@@ -81,7 +81,7 @@ class App extends React.Component {
   render() {
     return (
       <PopularDishesWrapper>
-        <h3>Popular Dishes</h3>
+        <h4>Popular Dishes</h4>
         <TopDishes
           fakeDishes={this.fakeDishes}
           showModal={this.showModal.bind(this)}
@@ -100,4 +100,7 @@ class App extends React.Component {
 
 export default App;
 
-const PopularDishesWrapper = styled.div``;
+const PopularDishesWrapper = styled.div`
+  margin: 0 110px;
+  font-family: Helvetica Neue;
+`;

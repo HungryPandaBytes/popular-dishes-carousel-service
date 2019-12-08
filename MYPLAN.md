@@ -1,4 +1,4 @@
-## ULTIMATE GOAL: Build tiles (depending on how many top dishes I have) that I can scroll
+## ULTIMATE GOAL: Build popular dishes carousel & modal with a photo slider
 
 1. Build the TopDishes component to pass off the data to the DishItem component
 
@@ -30,6 +30,8 @@
 - photoslider component will be similar to the carousel but it will display one photo with caption at a time
 - photoslide component will be displaying the photo that get passed via props by photoslider
 - the previous and next button will get hooked up in the photoslider component
+- also worked on removing unnecessary wrappers
+- implemented the photo caption
 
 8. Build the Review component that
 9. Upload the photos to S3 and think of a way to seed it to db

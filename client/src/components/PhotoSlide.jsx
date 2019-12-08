@@ -24,10 +24,10 @@ const StyledSlide = styled.div`
 `;
 const StyledCaption = styled.div`
   position: absolute;
-  padding-top: 1%;
+  padding-top: 2%;
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 1%;
+  padding-bottom: 2%;
   bottom: 0%;
   width: 90%;
   display: flex;
