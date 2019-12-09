@@ -3,7 +3,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const { PopularDishes } = require("./controller.js");
+const { PopularDishesController } = require("./controller.js");
 const port = 3000;
 
 app.use(bodyParser.json());
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // get the top dishes of a restaurant
 app.get("/api/popular-dishes/:restaurant_id", function(req, res) {
-  PopularDishes.get(req, res);
+  PopularDishesController.get(req, res);
 });
 
 // get all popular dishes from all restaurants

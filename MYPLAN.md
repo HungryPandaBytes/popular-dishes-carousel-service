@@ -35,3 +35,14 @@
 
 8. Build the Review component that
 9. Upload the photos to S3 and think of a way to seed it to db
+
+===================================================================================================
+
+Server
+
+1. send back an object with 10 popular dish photo urls, caption, dish name
+
+- send back an object with data when I submit a GET request
+
+2. create a more realistic db file for 2 restaurants
+3. put the S3 image links
