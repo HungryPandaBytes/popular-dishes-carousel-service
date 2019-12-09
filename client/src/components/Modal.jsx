@@ -9,12 +9,13 @@ class Modal extends React.Component {
       images: [
         {
           img:
-            "http://cdn.cnn.com/cnnnext/dam/assets/140423165935-8-obama-sushi-chef-jiro-ono-story-top.jpg",
+            "https://media-cdn.tripadvisor.com/media/photo-p/0e/2d/91/54/tuna.jpg",
           caption: "This is delicious"
         },
         {
-          img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-          caption: "This is gross"
+          img:
+            "https://66.media.tumblr.com/3dc69c498feeef3778f07cd29616589c/tumblr_mn5i8lVXV21rl52wjo4_500.gifv",
+          caption: "This is shockingly good! I usually prefer fatty tuna."
         }
       ],
       currentIdx: 0
@@ -61,6 +62,9 @@ class Modal extends React.Component {
           >
             &#x3e;
           </ModalButton>
+          <div>
+            <img src=""></img>
+          </div>
         </StyledInnerModal>
         <StyledExitButton onClick={this.props.closePopup}>
           <h3>Close X</h3>

@@ -17,6 +17,7 @@ const PhotoSlide = props => {
 
 const StyledSlide = styled.div`
   font-family: Helvetica Neue;
+  font-size: 12px;
   color: white;
   display: flex;
   flex-direction: row;

@@ -1,60 +1,64 @@
 // SEEDING DB ==============================================================================================
 
-const { PopularDishes, Restaurants } = require("./model.js");
+const {
+  PopularDishes,
+  Restaurants,
+  PopularDishesPhoto
+} = require("./model.js");
 var faker = require("faker");
 
 // seeding db with 100 restaurants & each restaurant has 10 top dishes
-for (var i = 0; i < 20; i++) {
-  var restaurant_id = Math.floor(Math.random() * 1000);
+for (var i = 1; i < 3; i++) {
   var restaurant = {
-    restaurant_id: restaurant_id,
     restaurant_name: faker.company.companyName()
   };
 
-  for (var i = 0; i < 10; i++) {
-    var dish_id = Math.floor(Math.random() * 1000000);
-    var dish = {
-      dish_id: dish_id,
-      dish_name: faker.lorem.words(),
-      reviewer_photo: faker.image.food()
-    };
-  }
-
-  PopularDishes.create(dish, (err, data) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(data);
-    }
-  });
-
   Restaurants.create(restaurant, (err, data) => {
+    console.log("It's seeding the restaurants table right now");
     if (err) {
-      res.send(err);
+      console.log(err);
     } else {
-      res.send(data);
+      console.log(data);
     }
   });
-  // populating the reviews table in MySQL
-  // PopularDishes.get((err, data) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     data.forEach(dish => {
-  //       var review = {
-  //         dish_id: dish.dish_id,
-  //         reviewer_name: faker.name.findName(),
-  //         reviewer_photo: faker.image.avatar(),
-  //         review_date: faker.date.recent(),
-  //         review_text: faker.lorem.paragraph()
-  //       };
-  //       PopularDishesReview.create(review, (err, data) => {
-  //         if (err) {
-  //           res.send(err);
-  //         } else {
-  //         }
-  //       });
-  //     });
-  //   }
-  // });
+
+  for (var j = 0; j < 10; j++) {
+    var dish = {
+      dish_name: faker.lorem.words(),
+      dish_photo_url: faker.image.food(),
+      restaurant_id: i
+    };
+
+    PopularDishes.create(dish, (err, data) => {
+      console.log("it's seeding the popular dishes table");
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    });
+  }
+  var random_photo_count = Math.floor(Math.random() * 5);
+  for (var k = 0; k < random_photo_count; k++) {
+    var photo = {
+      photo_text: faker.lorem.words(),
+      photo_url: faker.image.food(),
+      restaurant_id: i
+    };
+    PopularDishesPhoto.create(photo, (err, data) => {
+      console.log("it's seeding the photo table");
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    });
+  }
 }
+
+// SELECT *
+// FROM restaurants
+// JOIN photos ON (restaurants.restaurant_id = photos.restaurant_id)
+// JOIN popularDishes ON (restaurants.restaurant_id = popularDishes.restaurant_id)
+
+// select restaurants.*, photos.*, popularDishes.*  from restaurants, photos, popularDishes where restaurants.restaurant_id = photos.restaurant_id
