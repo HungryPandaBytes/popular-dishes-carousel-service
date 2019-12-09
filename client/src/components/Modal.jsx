@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Slide from "./Slide.jsx";
+import PhotoSlide from "./PhotoSlide.jsx";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class Modal extends React.Component {
       ],
       currentIdx: 0
     };
+    this.totalPhotoCount = this.state.images.length;
     this.PhotoSliderRef = React.createRef();
   }
   prevSlideButton() {
@@ -41,19 +42,35 @@ class Modal extends React.Component {
 
   render() {
     return (
-      <StyledModal className="modal">
+      <StyledModalWrapper className="modal">
         <StyledInnerModal className="modalInner">
-          <ModalButton onClick={this.prevSlideButton.bind(this)}>◄</ModalButton>
-          <Slide image={this.state.images[this.state.currentIdx]} />
-          <ModalButton onClick={this.nextSlideButton.bind(this)}>►</ModalButton>
-          <button onClick={this.props.closePopup}>close</button>
+          <ModalButton
+            className="prev-slide-button"
+            onClick={this.prevSlideButton.bind(this)}
+          >
+            &#x3c;
+          </ModalButton>
+          <PhotoSlide
+            image={this.state.images[this.state.currentIdx]}
+            currentIdx={this.state.currentIdx}
+            totalPhotoCount={this.totalPhotoCount}
+          />
+          <ModalButton
+            className="next-slide-button"
+            onClick={this.nextSlideButton.bind(this)}
+          >
+            &#x3e;
+          </ModalButton>
         </StyledInnerModal>
-      </StyledModal>
+        <StyledExitButton onClick={this.props.closePopup}>
+          <h3>Close X</h3>
+        </StyledExitButton>
+      </StyledModalWrapper>
     );
   }
 }
 
-const StyledModal = styled.div`
+const StyledModalWrapper = styled.div`
   position: fixed;
   width: 100vm;
   height: 100vm;
@@ -61,18 +78,20 @@ const StyledModal = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
 `;
 const StyledInnerModal = styled.div`
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  top: 10%;
-  bottom: 10%;
-  margin: auto;
   display: flex;
-  border-radius: 5px;
+  height: 80vh;
+  width: 80vw;
+  margin: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+  border-radius: 10px;
 `;
 
 // button styling
@@ -80,10 +99,22 @@ const ModalButton = styled.button`
   height: 35px;
   width: 35px;
   color: white;
-  margin: 0px;
+  margin: auto;
   border: 0px;
   background-color: black;
-  position: "relative";
+  font-size: 35px;
+  transform: scale(0.5, 1);
 `;
 
+const StyledExitButton = styled.button`
+  position: absolute;
+  background-color: Transparent;
+  right: 10%;
+  top: 5%;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  color: white;
+  font-family: Helvetica Neue;
+`;
 export default Modal;

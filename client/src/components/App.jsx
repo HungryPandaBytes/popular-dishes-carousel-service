@@ -1,7 +1,7 @@
 import React from "react";
 import TopDishes from "./TopDishes.jsx";
 import Modal from "./Modal.jsx";
-import PhotoSlider from "./PhotoSlider.jsx";
+import styled from "styled-components";
 
 class App extends React.Component {
   constructor(props) {
@@ -80,8 +80,8 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h3 style={{ textAlign: "center" }}> Popular Dishes</h3>
+      <PopularDishesWrapper>
+        <h4>Popular Dishes</h4>
         <TopDishes
           fakeDishes={this.fakeDishes}
           showModal={this.showModal.bind(this)}
@@ -93,9 +93,14 @@ class App extends React.Component {
             closePopup={this.showModal.bind(this)}
           />
         ) : null}
-      </div>
+      </PopularDishesWrapper>
     );
   }
 }
 
 export default App;
+
+const PopularDishesWrapper = styled.div`
+  margin: 0 110px;
+  font-family: Helvetica Neue;
+`;
