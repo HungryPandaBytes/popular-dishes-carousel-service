@@ -9,76 +9,20 @@ class App extends React.Component {
     super(props);
     this.state = {
       dishes: [],
+      photos: [],
       showModal: false
     };
-    this.fakeDishes = [
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "Toro Sushi",
-        photoCount: 3,
-        reviewCount: 23
-      },
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "Salmon Sushi",
-        photoCount: 5,
-        reviewCount: 2
-      },
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "Kanpanchi Sushi",
-        photoCount: 3,
-        reviewCount: 44
-      },
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "Lobster Sushi",
-        photoCount: 3,
-        reviewCount: 23
-      },
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "King Salmon Sushi",
-        photoCount: 5,
-        reviewCount: 2
-      },
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "Squid Sushi",
-        photoCount: 3,
-        reviewCount: 44
-      },
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "Salmon Sushi",
-        photoCount: 5,
-        reviewCount: 2
-      },
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "Kanpanchi Sushi",
-        photoCount: 3,
-        reviewCount: 44
-      },
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "Lobster Sushi",
-        photoCount: 3,
-        reviewCount: 23
-      },
-      {
-        img: "https://kottke.org/plus/misc/images/jiros-sushi.jpg",
-        dishName: "King Salmon Sushi",
-        photoCount: 5,
-        reviewCount: 2
-      }
-    ];
   }
 
   componentDidMount() {
     axios
       .get("/api/popular-dishes/1")
       .then(response => this.setState({ dishes: response.data }))
+      .then(
+        axios
+          .get("/api/photos/1")
+          .then(response => this.setState({ photos: response.data }))
+      )
       .catch(response => console.log(response));
   }
 

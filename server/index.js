@@ -16,9 +16,9 @@ app.get("/api/popular-dishes/:restaurant_id", function(req, res) {
   PopularDishesController.get(req, res);
 });
 
-// get all popular dishes from all restaurants
-app.get("/api/popular-dishes/", function(req, res) {
-  // PopularDishes.get(req, res);
+// get photos and caption
+app.get("/api/photos/:restaurant_id", function(req, res) {
+  PopularDishesController.get(req, res);
 });
 
 // serve static files
