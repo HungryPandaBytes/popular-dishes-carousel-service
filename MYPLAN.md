@@ -33,8 +33,19 @@
 - also worked on removing unnecessary wrappers
 - implemented the photo caption
 
-8. Build the Review component that
+8. Axios - connect to the server endpoint - and use data from db
+
+- download axios and do a componentDidMount
+- setState to update the state of the parent component
+- use props to pass down data to the child components
+
 9. Upload the photos to S3 and think of a way to seed it to db
+
+10. Create a hyper-realistic page for a sushi restaurant
+
+11. I need to create dishId filter logic 
+
+NEED TO FIX: put a different restaurant id, should serve you data based on the restaurant id, now it's default to restaurant id = 1
 
 ===================================================================================================
 

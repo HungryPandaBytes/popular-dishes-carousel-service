@@ -5,12 +5,12 @@ const DishItem = props => {
   return (
     <StyledPopularDish onClick={props.showModal}>
       <PopularDishImage
-        src={props.dish.img}
+        src={props.dish.dish_photo_url}
         alt="No image. It's a pretty dish tho."
       />
       <StyledDescription>
         <div style={{ marginTop: "15px", marginLeft: "15px" }}>
-          {props.dish.dishName}{" "}
+          {props.dish.dish_name}
         </div>
         <div
           style={{
@@ -22,7 +22,8 @@ const DishItem = props => {
             fontSize: "10px"
           }}
         >
-          {props.dish.photoCount} Photos • {props.dish.reviewCount} Reviews
+          {Math.floor(Math.random() * 5) + 1} Photos •{" "}
+          {Math.floor(Math.random() * 22) + 1} Reviews
         </div>
       </StyledDescription>
     </StyledPopularDish>

@@ -28,11 +28,12 @@ class TopDishes extends React.Component {
     return (
       <Wrapper>
         <CarouselWrapper ref={this.carouselwrapper}>
-          {this.props.fakeDishes.map((dish, idx) => {
+          {this.props.dishes.map((dish, idx) => {
             return (
               <DishItem
                 key={idx}
                 dish={dish}
+                photos={this.props.photos}
                 showModal={this.props.showModal}
               />
             );

@@ -24,7 +24,8 @@ CREATE TABLE popularDishes (
     restaurant_name TEXT);
 
     CREATE TABLE photos (
-    photo_id INT PRIMARY KEY AUTO_INCREMENT,  
+    photo_id INT PRIMARY KEY AUTO_INCREMENT, 
+    dish_id INT, 
     photo_text TEXT,
     photo_url VARCHAR(200), 
     restaurant_id INT
