@@ -113,6 +113,7 @@ const StyledInnerModal = styled.div`
   display: flex;
   height: 80vh;
   width: 80vw;
+  z-index: 100;
   margin: auto;
   flex-direction: row;
   justify-content: space-between;

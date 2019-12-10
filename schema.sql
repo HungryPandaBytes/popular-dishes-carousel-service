@@ -1,4 +1,5 @@
-DROP DATABASE dishes;
+
+-- DROP DATABASE dishes;
 
 CREATE DATABASE dishes;
 
