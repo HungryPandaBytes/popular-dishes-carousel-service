@@ -10,7 +10,7 @@
     "webpack-prod": "webpack --build=production",
     "webpack-dev": "webpack --watch",
     "seed-db": "node server/mock_data.js",
-    "schema": "mysql -u student -p < /schema.sql",
+    "schema": "mysql -u student -p < schema.sql",
     "server": "nodemon server/index.js",
     "test-coverage": "jest --coverage",
     "test": "jest --watchAll"
