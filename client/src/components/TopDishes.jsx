@@ -33,6 +33,7 @@ class TopDishes extends React.Component {
               <DishItem
                 key={idx}
                 dish={dish}
+                photos={this.props.photos}
                 showModal={this.props.showModal}
               />
             );

@@ -22,7 +22,8 @@ const DishItem = props => {
             fontSize: "10px"
           }}
         >
-          {props.dish.photoCount} Photos • {props.dish.reviewCount} Reviews
+          {Math.floor(Math.random() * 5) + 1} Photos •{" "}
+          {Math.floor(Math.random() * 22) + 1} Reviews
         </div>
       </StyledDescription>
     </StyledPopularDish>

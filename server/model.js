@@ -60,7 +60,7 @@ module.exports = {
   },
   PopularDishesPhoto: {
     create: (fakerObj, callback) => {
-      var query = `INSERT INTO photos (photo_text, photo_url, restaurant_id) values ('${fakerObj.photo_text}', '${fakerObj.photo_url}', '${fakerObj.restaurant_id}');`;
+      var query = `INSERT INTO photos (photo_text, dish_id, photo_url, restaurant_id) values ('${fakerObj.photo_text}', '${fakerObj.dish_id}', '${fakerObj.photo_url}', '${fakerObj.restaurant_id}');`;
       connection.query(query, function(error, result) {
         if (error) {
           console.log(error);

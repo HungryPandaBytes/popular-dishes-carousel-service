@@ -23,7 +23,7 @@ module.exports = {
   },
   PhotoController: {
     get: (req, res) => {
-      Photo.get((err, data) => {
+      Photo.get(req.params.restaurant_id, (err, data) => {
         if (err) {
           res.send(err);
         } else {

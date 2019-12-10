@@ -43,6 +43,8 @@
 
 10. Create a hyper-realistic page for a sushi restaurant
 
+11. I need to create dishId filter logic 
+
 NEED TO FIX: put a different restaurant id, should serve you data based on the restaurant id, now it's default to restaurant id = 1
 
 ===================================================================================================

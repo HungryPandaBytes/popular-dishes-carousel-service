@@ -22,8 +22,7 @@ class App extends React.Component {
         axios
           .get("/api/photos/1")
           .then(response => this.setState({ photos: response.data }))
-      )
-      .catch(response => console.log(response));
+      );
   }
 
   showModal() {
@@ -31,17 +30,21 @@ class App extends React.Component {
       showModal: !this.state.showModal
     });
   }
+
+
   render() {
     return (
       <PopularDishesWrapper>
         <h4>Popular Dishes</h4>
         <TopDishes
           dishes={this.state.dishes}
+          photos={this.state.photos}
           showModal={this.showModal.bind(this)}
         />
 
         {this.state.showModal ? (
           <Modal
+            photos={this.state.photos}
             text="This feature is coming out soon..."
             closePopup={this.showModal.bind(this)}
           />

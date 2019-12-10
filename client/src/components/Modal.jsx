@@ -18,14 +18,19 @@ class Modal extends React.Component {
           caption: "This is shockingly good! I usually prefer fatty tuna."
         }
       ],
-      currentIdx: 0
+      currentIdx: 0,
+      filteredPhotos: []
     };
     this.totalPhotoCount = this.state.images.length;
     this.PhotoSliderRef = React.createRef();
   }
+  // componentDidMount() {
+  //   this.displayDishPhotos();
+  // }
+
   prevSlideButton() {
     const currentIdx = this.state.currentIdx;
-    if (currentIdx >= this.state.images.length - 1) {
+    if (currentIdx >= this.props.photos.length - 1) {
       this.setState({
         currentIdx: currentIdx - 1
       });
@@ -40,6 +45,23 @@ class Modal extends React.Component {
       });
     }
   }
+
+  // displayDishPhotos() {
+  //   let dishPhotos = [];
+
+  //   this.props.photos.map(photo => {
+  //     // if dishid matches the photo's dishid, render.
+  //     if (photo.dish_id === 1) {
+  //       dishPhotos.push({
+  //         photo_url: photo.photo_url,
+  //         photo_text: photo.photo_text
+  //       });
+  //     }
+  //   });
+  //   console.log(dishPhotos);
+
+  //   this.setState({ filteredPhotos: dishPhotos });
+  // }
 
   render() {
     return (
