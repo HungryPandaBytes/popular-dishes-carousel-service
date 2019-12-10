@@ -4,34 +4,51 @@
 
 ## Related Projects
 
-- https://github.com/teamName/repo
-- https://github.com/teamName/repo
-- https://github.com/teamName/repo
-- https://github.com/teamName/repo
+https://github.com/yumnoms/reviews-service
+https://github.com/yumnoms/popular-dishes-service
+https://github.com/yumnoms/photo-carousel-service
+https://github.com/yumnoms/Laurence-Nguyen-proxy
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+2. [Requirements](#requirements)
+3. [Development](#development)
 
 ## Usage
 
 > Some usage instructions
 
+### Setting up mySQL database & seeding the database
+
+For mySQL, if the user 'Student' doesn't exist, access mySQL and run:
+
+```javascript
+CREATE USER 'student'@'localhost' IDENTIFIED BY 'student';
 ```
-// install dependencies
-npm install
 
-// load schema
-npm run schema
+You may need to grand privileges to the 'student' user on all databases. Run this script in MySQL.
 
-// seed the db
+```sql
+GRANT ALL PRIVILEGES ON *.* TO 'student'@'localhost';
+```
+
+Then in the terminal:
+
+```
+npm run schema //password: student
 npm run seed-db
 
 ```
 
-- Run
+
+
+### Start the server
+
+```
+npm run server
+
+```
 
 ## Requirements
 

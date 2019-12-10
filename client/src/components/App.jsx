@@ -16,11 +16,11 @@ class App extends React.Component {
 
   componentDidMount() {
     axios
-      .get("/api/popular-dishes/1")
+      .get("http://localhost:3004/api/popular-dishes/1")
       .then(response => this.setState({ dishes: response.data }))
       .then(
         axios
-          .get("/api/photos/1")
+          .get("http://localhost:3004/api/photos/1")
           .then(response => this.setState({ photos: response.data }))
       );
   }
@@ -30,7 +30,6 @@ class App extends React.Component {
       showModal: !this.state.showModal
     });
   }
-
 
   render() {
     return (
