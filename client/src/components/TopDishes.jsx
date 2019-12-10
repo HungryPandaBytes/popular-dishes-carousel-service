@@ -28,7 +28,7 @@ class TopDishes extends React.Component {
     return (
       <Wrapper>
         <CarouselWrapper ref={this.carouselwrapper}>
-          {this.props.fakeDishes.map((dish, idx) => {
+          {this.props.dishes.map((dish, idx) => {
             return (
               <DishItem
                 key={idx}

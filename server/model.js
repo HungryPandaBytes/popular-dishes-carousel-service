@@ -14,12 +14,14 @@ module.exports = {
     get: (restaurantID, callback) => {
       connection.query(
         // join three tables based on restaurant_id
-        `SELECT *
-        FROM restaurants
-        JOIN photos ON (restaurants.restaurant_id = photos.restaurant_id)
-        JOIN popularDishes ON (restaurants.restaurant_id = popularDishes.restaurant_id)
-        WHERE restaurants.restaurant_id = ${restaurantID}
-        `,
+        // `SELECT *
+        // FROM restaurants
+        // JOIN photos ON (restaurants.restaurant_id = photos.restaurant_id)
+        // JOIN popularDishes ON (restaurants.restaurant_id = popularDishes.restaurant_id)
+        // WHERE restaurants.restaurant_id = ${restaurantID}
+        // LIMIT 5;
+        // `
+        `SELECT * FROM popularDishes WHERE restaurant_id = ${restaurantID}`,
         function(error, result) {
           if (error) {
             callback(error);
@@ -64,3 +66,11 @@ module.exports = {
     }
   }
 };
+
+`SELECT DISTINCT dish_id, 
+        FROM popularDishes 
+        JOIN photos ON (popularDishes.restaurant_id = photos.restaurant_id)
+        JOIN restaurants ON (restaurants.restaurant_id = popularDishes.restaurant_id)
+        WHERE restaurants.restaurant_id = 1
+        LIMIT 5;
+        `;

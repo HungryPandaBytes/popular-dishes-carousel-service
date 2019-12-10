@@ -22,10 +22,22 @@ for (var i = 1; i < 3; i++) {
     }
   });
 
+  var photos = [
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/tuna.jpg",
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/10_JiroSushi_TooMuchFOMO_8162076064_7198734377_o_2.jpg",
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/Shrimp_sushi.jpg",
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/jiro-dreams-of-sushi-food-porn-thumb.0.jpg",
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/tumblr_mazpatl0My1qzfo9go1_500.png",
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/1472707651.jpg",
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/sukiyabashi-jiro-roppongi.jpg",
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/photo_04.jpg",
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/images.jpeg",
+    "https://food-photos-yelp.s3-us-west-1.amazonaws.com/LXQjNbk.jpg"
+  ];
   for (var j = 0; j < 10; j++) {
     var dish = {
-      dish_name: faker.lorem.words(),
-      dish_photo_url: faker.image.food(),
+      dish_name: faker.lorem.word(),
+      dish_photo_url: photos[Math.floor(Math.random() * photos.length)],
       restaurant_id: i
     };
 
@@ -41,7 +53,7 @@ for (var i = 1; i < 3; i++) {
   var random_photo_count = Math.floor(Math.random() * 5);
   for (var k = 0; k < random_photo_count; k++) {
     var photo = {
-      photo_text: faker.lorem.words(),
+      photo_text: faker.lorem.word(),
       photo_url: faker.image.food(),
       restaurant_id: i
     };
