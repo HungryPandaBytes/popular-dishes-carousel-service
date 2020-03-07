@@ -1,4 +1,4 @@
-# Popular Dishes Microservice
+# Popular Dishes Carousel Microservice
 
 This carousel microservice for YumNoms mimics the interface used for Yelp Restaurants Popular Dishes.
 
