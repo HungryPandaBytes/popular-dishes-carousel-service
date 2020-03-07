@@ -1,4 +1,4 @@
-# Project Name
+# Popular Dishes Microservice
 
 This carousel microservice for YumNoms mimics the interface used for Yelp Restaurants Popular Dishes.
 
